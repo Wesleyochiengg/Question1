@@ -1,2 +1,33 @@
-# Question1
-write c++ program that will carry out the following: i)Define a class named Car. ii)The class should have private data members to the following:  。brand:the car brand(string).  。model:the model of the car(string).  。price:the price of the car(float).  。mileage:the mileage of the car(int). iii)Provide a constructor to initialize
+#include <iostream>
+#include <string>
+
+class Car {
+private:
+    std::string brand;
+    std::string model;
+    float price;
+    int mileage;
+
+public:
+    Car(std::string b, std::string m, float p, int mil) : brand(b), model(m), price(p), mileage(mil) {}
+
+    void display() {
+        std::cout << "Brand: " << brand << std::endl;
+        std::cout << "Model: " << model << std::endl;
+        std::cout << "Price: $" << price << std::endl;
+        std::cout << "Mileage: " << mileage << " miles" << std::endl;
+    }
+
+    void drive(int distance) {
+        mileage += distance;
+        std::cout << "Updated Mileage: " << mileage << " miles" << std::endl;
+    }
+};
+
+int main() {
+    Car myCar("Toyota", "Corolla", 20000, 5000);
+    myCar.display();
+    myCar.drive(150);
+    myCar.drive(300);
+    return 0;
+}
